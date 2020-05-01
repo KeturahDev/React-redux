@@ -25,4 +25,16 @@ describe("application's actions", () => {
       id: 9
     })
   })
+  it("selectKeg should create SELECT_KEG action", () => {
+    expect(actions.selectKeg(newKeg)).toEqual({
+      type: "SELECT_KEG",
+      name: "Covered in Hair",
+      brand: "MansLiquor",
+      price: "$11",
+      alcoholContent: "10%",
+      description: "Every inch! *rips off shirt*",
+      pints: 124,
+      id: 9
+    })
+  })
 })
