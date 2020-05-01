@@ -14,6 +14,6 @@ export const selectKeg = (keg) => {
   return {type: a.SELECT_KEG, name, brand, price, alcoholContent, description, pints, id}
 }
 
-export const removeKeg = () => {
-  
-}
+export const removeKeg = () => ({
+  type: a.REMOVE_KEG
+})
