@@ -1,7 +1,7 @@
 import * as a from "./ActionTypes"
 
 export const toggleForm = () => ({
-  // type: a.TOGGLE_FORM
+  type: a.TOGGLE_FORM
 })
 
 // export const addKeg = (newKeg) => {
