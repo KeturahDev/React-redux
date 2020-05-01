@@ -12,5 +12,4 @@ export const addKeg = (newKeg) => {
 export const selectKeg = (keg) => {
   const {name, brand, price, alcoholContent, description, pints, id} = keg
   return {type: a.SELECT_KEG, name, brand, price, alcoholContent, description, pints, id}
-
 }
