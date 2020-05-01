@@ -27,22 +27,8 @@ class KegController extends React.Component{
   handleClick = () => {
     const {dispatch} = this.props
     const action = a.toggleForm()
-    const actionraw = {
-      type: "TOGGLE_FORM"
-    }
-    const action2 = a.removeKeg()
-    if(this.props.selectedKeg !== null) {
-      // dispatch(action)
-      // dispatch(action2)
-      // this.setState({
-      //   formVisible: false,
-      //   selectedKeg: null,
-      // })
-      dispatch(actionraw)
-    } else {
-      dispatch(actionraw)
-    }
-    // dispatch(action)
+    // const action2 = a.removeKeg()
+    dispatch(action)
   }
 
   handleAddNewKeg = (newKeg) => {
@@ -74,13 +60,14 @@ class KegController extends React.Component{
 
   setVisiblitiy = () => {
     // if(true) {
+    if(Object.keys(this.props.selectedKeg).length !== 0) {
     // if(this.props.selectedKeg !== null) {
-    //   return{
-    //     component: <KegDetails keg={this.props.selectedKeg}/>,
-    //     buttonText: "Back to Kegs"
-    //   }
-    // } else if (this.props.formVisible){
-    if (this.props.formVisible){
+      return{
+        component: <KegDetails keg={this.props.selectedKeg}/>,
+        buttonText: "Back to Kegs"
+      }
+    } else if (this.props.formVisible){
+    // if (this.props.formVisible){
       return{
         component: <KegForm onKegCreation={this.handleAddNewKeg}/>,
         buttonText: "Back to Kegs"
