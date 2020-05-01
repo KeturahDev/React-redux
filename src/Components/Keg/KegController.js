@@ -48,15 +48,17 @@ class KegController extends React.Component{
   handleAddNewKeg = (newKeg) => {
     const {dispatch} = this.props;
     const action = a.addKeg(newKeg)
+    const action2 = a.toggleForm()
     dispatch(action)
+    dispatch(action2)
   }
 
-  handleChangeingSelectedKeg = (id) => {
-    const selectedKeg = this.state.kegList.filter(keg => keg.id === id)[0]
-    this.setState({
-      selectedKeg: selectedKeg
-    })
-  }
+  // handleChangeingSelectedKeg = (id) => {
+  //   const selectedKeg = this.state.kegList.filter(keg => keg.id === id)[0]
+  //   this.setState({
+  //     selectedKeg: selectedKeg
+  //   })
+  // }
 
   handleSellingPint = (id) => {
     const soldKeg = this.state.kegList.filter(keg => keg.id === id)[0]
