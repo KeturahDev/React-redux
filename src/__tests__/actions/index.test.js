@@ -37,4 +37,7 @@ describe("application's actions", () => {
       id: 9
     })
   })
+  it("removeKeg should create REMOVE_KEG action", () => {
+    expect(actions.removeKeg()).toEqual({type: "REMOVE_KEG"})
+  })
 })
