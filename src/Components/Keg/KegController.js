@@ -3,7 +3,6 @@ import KegList from "./KegList";
 import KegDetails from "./KegDetails";
 import KegForm from "./KegForm";
 import { Kegs } from "./../../PresetData/GasonsKegs";
-// import "./../../"
 
 class KegController extends React.Component{
   constructor(props){
@@ -93,7 +92,6 @@ class KegController extends React.Component{
           <div className="centerBox">
             <button className="buttondark" onClick={this.handleClick}>{currentlyVisible.buttonText}</button>
           </div>
-          {/* <button className="btn btn-block btn-dark" onClick={this.handleClick}>{currentlyVisible.buttonText}</button> */}
         </div>
       </React.Fragment>
     );

@@ -7,7 +7,6 @@ function App() {
     <React.Fragment>
       <div className="App">
         <div className="header">
-
           <Header/>
         </div>
           <KegController/>

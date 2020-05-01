@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Keg from "./Keg";
 
 function KegList(props){
-  //always sorts alphebatically on list render to avoid rerender displacements
   const alphabeticalList = props.list.sort((a, b) => {
     const textA = a.name.toUpperCase();
     const textB = b.name.toUpperCase();
