@@ -27,8 +27,9 @@ class KegController extends React.Component{
   handleClick = () => {
     const {dispatch} = this.props
     const action = a.toggleForm()
-    // const action2 = a.removeKeg()
+    const action2 = a.removeKeg()
     dispatch(action)
+    dispatch(action2)
   }
 
   handleAddNewKeg = (newKeg) => {
@@ -39,12 +40,11 @@ class KegController extends React.Component{
     dispatch(action2)
   }
 
-  // handleChangeingSelectedKeg = (id) => {
-  //   const selectedKeg = this.state.kegList.filter(keg => keg.id === id)[0]
-  //   this.setState({
-  //     selectedKeg: selectedKeg
-  //   })
-  // }
+  handleChangeingSelectedKeg = (keg) => {
+    const {dispatch} = this.props
+    const action = a.selectKeg(keg)
+    dispatch(action)
+  }
 
   handleSellingPint = (id) => {
     const soldKeg = this.state.kegList.filter(keg => keg.id === id)[0]
@@ -59,9 +59,7 @@ class KegController extends React.Component{
   }
 
   setVisiblitiy = () => {
-    // if(true) {
-    if(Object.keys(this.props.selectedKeg).length !== 0) {
-    // if(this.props.selectedKeg !== null) {
+    if(Object.keys(this.props.selectedKeg).length !== 0) { //Object.keys returns an array of keys
       return{
         component: <KegDetails keg={this.props.selectedKeg}/>,
         buttonText: "Back to Kegs"

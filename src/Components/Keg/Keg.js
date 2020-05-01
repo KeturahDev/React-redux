@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 function Keg(props){
-
   const kegStyle={
     backgroundColor: "black",
     color: "rgb(175, 175, 175)",
@@ -12,7 +11,7 @@ function Keg(props){
   return(
     <React.Fragment>
       <div className="col-md-4 container" style={kegStyle}>
-        <div className="row" onClick={() => props.showDetails(props.id)}>
+        <div className="row" onClick={() => props.showDetails(props)}>
           <div className="col-md-8 container">
             <h3 onClick={props.showDetails} >{props.name}</h3>
             <p>By: {props.brand}</p>

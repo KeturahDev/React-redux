@@ -19,9 +19,10 @@ function KegList(props){
             price={keg.price} 
             pints={keg.pints} 
             brand={keg.brand} 
+            description={keg.description} 
+            alcoholContent={keg.alcoholContent} 
             id={keg.id}
             key={keg.id}
-            alcCont={keg.alcoholContent}
             showDetails={props.onSelectingKeg}
             sellPint={props.onSellingPint}
             />
