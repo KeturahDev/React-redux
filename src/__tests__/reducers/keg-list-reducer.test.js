@@ -78,7 +78,7 @@ describe("kegListReducer", () => {
       id: id
     }
     expect(kegListReducer({}, action)).toEqual({
-      id5: {
+      [id5]: {
         name: "Covered in Hair",
       brand: "MansLiquor",
       price: "$11",
