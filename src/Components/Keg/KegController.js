@@ -3,6 +3,7 @@ import KegList from "./KegList";
 import KegDetails from "./KegDetails";
 import KegForm from "./KegForm";
 import { Kegs } from "./../../PresetData/GasonsKegs";
+import {connect} from "react-redux"
 
 class KegController extends React.Component{
   constructor(props){
@@ -106,5 +107,13 @@ class KegController extends React.Component{
     );
   }
 }
+
+const mapStateToProps = state => ({
+  formVisible: state.formVisible,
+  kegList: state.kegList,
+  selectedKeg: state.selectedKeg
+})
+
+KegController = connect(mapStateToProps)(KegController)
 
 export default KegController;
