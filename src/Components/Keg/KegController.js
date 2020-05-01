@@ -13,6 +13,15 @@ class KegController extends React.Component{
       kegList: Kegs
     }
   }
+  //redux slices and return vals
+  //1. toggleForm: bool | default false
+  //2. selected keg: object | default {}
+  //3. kegList: object full of objects | default {(prestData)}
+
+  //actions:
+  //1- toggle
+  //2- SELECT_KEG ... CLEAR_SELECTED_KEG
+  //3- ADD_KEG (has edit functionality).. (no remove functionality yet but this is where itd go)
 
   handleClick = () => {
     //checks if click is from details page to reset to initial state
