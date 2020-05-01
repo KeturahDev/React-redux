@@ -47,15 +47,21 @@ class KegController extends React.Component{
   }
 
   handleSellingPint = (id) => {
-    const soldKeg = this.state.kegList.filter(keg => keg.id === id)[0]
+    const {dispatch} = this.props
+    console.log(this.props.kegList)
+    const soldKeg = this.props.kegList[id]
+    console.log(soldKeg)
+    console.log(id)
     const newKegsPints = soldKeg.pints -1
-    const newKeg = {...soldKeg, pints: newKegsPints}
-    console.log("pints:", newKeg.pints)
-    const removeOldKeg = this.state.kegList.filter(keg => keg.id !== id)
-    const newKegList = removeOldKeg.concat(newKeg)
-    this.setState({
-      kegList: newKegList
-    })
+    const newKeg = {...soldKeg, ...{pints: newKegsPints}}
+    const action = a.addKeg(newKeg)
+    dispatch(action)
+
+    // const removeOldKeg = this.state.kegList.filter(keg => keg.id !== id)
+    // const newKegList = removeOldKeg.concat(newKeg)
+    // this.setState({
+    //   kegList: newKegList
+    // })
   }
 
   setVisiblitiy = () => {

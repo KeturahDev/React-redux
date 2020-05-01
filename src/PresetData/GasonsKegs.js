@@ -7,7 +7,7 @@ export const id4 = v4()
 export const id5 = v4()
 
 export const Kegs = {
-  id1: {
+  [id1]: {
     name: "Marry Me Belle",
     brand: "Gaston",
     price: "$11",
@@ -16,7 +16,7 @@ export const Kegs = {
     pints: 124,
     id: id1
   },
-  id2:{
+  [id2]:{
     name: "Antler Decor",
     brand: "BuckWiser",
     price: "$8",
@@ -25,7 +25,7 @@ export const Kegs = {
     pints: 124,
     id: id2
   },
-  id3:{
+  [id3]:{
     name: "Egged Barge",
     brand: "Gaston",
     price: "$15",
@@ -34,7 +34,7 @@ export const Kegs = {
     pints: 124,
     id: id3
   },
-  id4:{
+  [id4]:{
     name: "Lady Lifts",
     brand: "BlueBarrel",
     price: "$6",
@@ -43,7 +43,7 @@ export const Kegs = {
     pints: 124,
     id: id4
   },
-  id5:{
+  [id5]:{
     name: "Kill the Beast",
     brand: "MonsterMan",
     price: "$10",
