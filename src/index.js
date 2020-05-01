@@ -5,10 +5,9 @@ import App from './Components/App';
 import {Provider} from "react-redux"
 import {createStore} from "redux"
 import rootReducer from "./reducers"
+import {Kegs} from "./PresetData/GasonsKegs"
 
-// const initialState = rootReducer.kegList(Kegs, {type:null}) --- I want to import initial state here but I dont remember how and have no examples to go off of
-
-const store = createStore(rootReducer,  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const store = createStore(rootReducer, {kegList: Kegs}, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()) 
 
 store.subscribe(() =>
   console.log(store.getState())

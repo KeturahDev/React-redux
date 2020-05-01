@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Keg from "./Keg";
 
-{/* alphabeticalList.map(keg =>  */}
+// alphabeticalList.map(keg =>  
 function KegList(props){
   // const alphabeticalList = props.list.sort((a, b) => {
   //   const textA = a.name.toUpperCase();
