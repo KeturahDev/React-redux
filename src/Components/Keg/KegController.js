@@ -2,16 +2,16 @@ import React from "react";
 import KegList from "./KegList";
 import KegDetails from "./KegDetails";
 import KegForm from "./KegForm";
-import { Kegs } from "./../../PresetData/GasonsKegs";
 import {connect} from "react-redux"
+import * as a from "./../../actions"
 
 class KegController extends React.Component{
   constructor(props){
     super(props)
     this.state={
-      formVisible: false,
-      selectedKeg: null,
-      kegList: Kegs
+      // formVisible: false,
+      // selectedKeg: null,
+      // kegList: Kegs
     }
   }
   //redux slices and return vals
@@ -25,25 +25,25 @@ class KegController extends React.Component{
   //3- ADD_KEG (has edit functionality).. (no remove functionality yet but this is where itd go)
 
   handleClick = () => {
-    //checks if click is from details page to reset to initial state
-    if(this.state.selectedKeg !== null) {
-      this.setState({
-        formVisible: false,
-        selectedKeg: null,
-      })
+    const {dispatch} = this.props
+    const action = a.toggleForm()
+    const action2 = a.removeKeg()
+    if(this.props.selectedKeg !== null) {
+      // dispatch(action)
+      // dispatch(action2)
+      // this.setState({
+      //   formVisible: false,
+      //   selectedKeg: null,
+      // })
     } else {
-      this.setState(prevstate => ({
-        formVisible: !prevstate.formVisible
-      }));
+      dispatch(action)
     }
   }
 
   handleAddNewKeg = (newKeg) => {
-    const newKegList = this.state.kegList.concat(newKeg);
-    this.setState({
-      formVisible: false,
-      kegList: newKegList
-    })
+    const {dispatch} = this.props;
+    const action = a.addKeg(newKeg)
+    dispatch(action)
   }
 
   handleChangeingSelectedKeg = (id) => {
@@ -66,12 +66,13 @@ class KegController extends React.Component{
   }
 
   setVisiblitiy = () => {
-    if(this.state.selectedKeg !== null) {
+    // if(true) {
+    if(this.props.selectedKeg !== null) {
       return{
-        component: <KegDetails keg={this.state.selectedKeg}/>,
+        component: <KegDetails keg={this.props.selectedKeg}/>,
         buttonText: "Back to Kegs"
       }
-    } else if (this.state.formVisible){
+    } else if (this.props.formVisible){
       return{
         component: <KegForm onKegCreation={this.handleAddNewKeg}/>,
         buttonText: "Back to Kegs"
@@ -79,7 +80,7 @@ class KegController extends React.Component{
     } else {
       return{
         component: <KegList 
-        list={this.state.kegList} 
+        list={this.props.kegList} 
         onSelectingKeg={this.handleChangeingSelectedKeg}
         onSellingPint={this.handleSellingPint}
         />,
